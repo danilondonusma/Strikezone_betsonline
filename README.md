@@ -1,31 +1,119 @@
-# StrikeZone — Sports Betting Platform 
-## Database & Analytics Project
+# ⚽ StrikeZone - Sports Betting Analytics Platform
 
-End-to-end data project for a fictional Colombian online sports betting platform: relational database design, Python data seeding, and business intelligence dashboards.
+![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql)
+![Python](https://img.shields.io/badge/Python-3.9+-green?logo=python)
+![PowerBI](https://img.shields.io/badge/PowerBI-F2C811?logo=powerbi&logoColor=black)
+![Faker](https://img.shields.io/badge/Faker-18.0+-orange)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+A complete **end-to-end data analytics project** for a simulated sports betting platform operating in the Colombian market. From database modeling with MySQL, synthetic data generation with Python, to executive dashboards in Power BI — this project demonstrates the full lifecycle of a data pipeline designed to answer real business questions.
+
+## 📋 Table of Contents
+
+1. [Business Context & Problem Statement](#business-context--problem-statement)
+2. [Key Business Questions Answered](#key-business-questions-answered)
+3. [Tech Stack](#tech-stack)
+4. [Dashboard Highlights](#dashboard-highlights)
+5. [Database Schema](#database-schema)
+6. [Project Structure](#project-structure)
+7. [Setup & Installation](#setup--installation)
+8. [Key Insights & Business Recommendations](#key-insights--business-recommendations)
+9. [Next Steps](#next-steps)
+10. [License](#license)
+
+## 📌 Business Context & Problem Statement
+
+The Colombian online sports betting market is one of the most dynamic in Latin America. In this context, StrikeZone is a **simulated sports betting platform** that positions itself as a premium platform targeting high-value users with above-average bets, and seeks to differentiate itself through data-driven business solutions. The business offers betting markets on five sports: Football, Basketball, Tennis, MMA, and Cycling.
+
+**The Problem:**  
+The company lacks a centralized data infrastructure to understand user behavior, betting patterns, financial performance and guarantee compliance with responsible gaming regulations . Without this visibility, they cannot:
+- Identify high-value customer segments.
+- Optimize betting market offerings.
+- Detect fraud or anomalous patterns.
+- Make data-driven decisions about marketing and operations.
+
+**The Solution:**  
+This project designs and implements a complete data pipeline — from a normalized relational database to interactive dashboards — that transforms raw transactional data into actionable business intelligence.
+
+## ❓ Key Business Questions Answered
+
+**[NEW]**  
+The dashboards answer these 8 strategic questions:
+
+1. **Which user segments (casual, frequent, high-value) generate the most revenue?**
+2. **What is the Gross Gaming Revenue (GGR) by month and sport?**
+3. **Which sports and betting markets attract the highest betting volume?**
+4. **What are the most popular payment methods among users?**
+5. **How does user activity vary by city and region in Colombia?**
+6. **What is the average bet size and how does it vary by user segment?**
+7. **What is the KYC verification rate and how does it impact betting behavior?**
+8. **Which users are at risk of churn based on recent activity?**
+
+---
+
+## 🛠️ Tech Stack
 
 
-## Project Overview
+| Layer | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Database** | MySQL 8.0 | Relational data modeling, referential integrity, triggers, and indexes |
+| **Data Generation** | Python 3.9+ with Faker | Synthetic data generation with realistic distributions (KYC, gender, bet sizes) |
+| **Data Processing** | Python (pandas, mysql-connector) | Data validation, cleaning, and loading |
+| **Visualization** | Power BI | Interactive dashboards with DAX measures and drill-through capabilities |
+| **Environment** | python-dotenv | Secure credential management |
 
-StrikeZone is a simulated online sports betting platform designed as an academic and portfolio project. The goal was to build a complete data pipeline, from relational database schema to business analysis, replicating the structure and logic of a real-world betting operation in the Colombian market.
+## 📊 Dashboard Highlights
 
-## The project covers three layers:
+The next three Power BI dashboards answer the descriptive business questions defined for this project. Screenshots below — the .pbix file is available in the dashboards/ folder.
 
-- Data modeling — relational schema designed in MySQL
-  
-- Data generation — realistic synthetic data seeded with Python
-  
-- Business analysis — descriptive dashboards built in Power BI
+### 1.  Customer Profile Dashboard
+
+<img width="1292" height="708" alt="Tab usuarios" src="https://github.com/user-attachments/assets/3faa8db9-a90a-4fa4-a42f-8e9e28a4cf2e" />
+
+- 87 verified users · 128 total bets
+- Dominant age segment: 55+ (92 users) — consistent with high-value bettor profile.
+- Gender split: 61% male / 36% female — female participation significantly above market average (~10%).
+- Top cities: Cartagena, Manizales, Barranquilla.
+- Payment methods evenly distributed across all 5 types.
+
+**🧠 Business Questions Triggered:**
+
+The geographic distribution reveals an **anomalous pattern** compared to industry benchmarks. Colombia's three largest cities — Bogotá, Medellín, and Cali — account for over 60% of the country's GDP and population, yet they are **underrepresented** in StrikeZone's user base compared to smaller cities like Cartagena, Manizales, and Barranquilla.
+
+This raises critical strategic questions:
+- **Is this a market opportunity or a strategic misfit?**
+  - *Opportunity:* The platform may be under-penetrated in major cities, suggesting a massive growth opportunity through targeted marketing campaigns in Bogotá, Medellín, and Cali.
+  - *Misfit:* The platform's offerings (sports, markets, odds) may appeal more to regional audiences, requiring a product strategy adjustment.
+
+- **Is there a correlation between city size and betting behavior?**
+  - Users in smaller cities may have stronger community ties, higher loyalty, and lower churn rates. This could inform a "community-first" marketing strategy.
+
+- **Are we missing a demographic segment in large cities?**
+  - The high female participation (36% vs. 10% industry average) is a competitive advantage. Could this be leveraged in marketing campaigns targeting women in Bogotá and Medellín?
+
+**Next Step:** A deeper cohort analysis by city and age segment is recommended to validate whether these patterns are statistically significant or driven by sample size.
+
+### 2. Financial Performance Dashboard
+<img width="1300" height="724" alt="image" src="https://github.com/user-attachments/assets/f5a6b212-66ae-4c6c-8680-2d094b8932da" />
+
+- Total wagered: COP 321.75M · Total paid out: COP 671.70M.
+- Net margin: -COP 349.95M means platform operating at a loss.
+- Average bet ticket: COP 2.51M — 50x above the Colombian market average of COP 50,000.
+- Football drives the highest volume but also the highest losses for the house.
+- Liga BetPlay is the only competition where the house maintains a positive edge.
+
+### 3. Market & Events Dashboard
+<img width="1286" height="713" alt="image" src="https://github.com/user-attachments/assets/2766b3e6-f9f7-4b51-a63c-5e372fed8b63" />
+
+- Resultado Exacto and Ambos Anotan concentrate the highest wagered volume.
+- Market type distribution is nearly uniform across all 5 types (~20% each).
+- La Liga and Vuelta a España generate the highest user winnings — highest risk markets for the platform.
 
 
-# Business Context
-The Colombian online sports betting market is one of the most dynamic in Latin America. In this context, StrikeZone positions itself as a premium platform targeting high-value users with above-average bets, and seeks to differentiate itself through data-driven business solutions. This project simulates betting market data—standardized, optimized, and analyzed using tools such as Python and MySQL—and answers key business questions related to user behavior, financial results, and market activity.
 
-## Tech Stack
-- Layer Tool Relational 
-- DatabaseMySQL 8.0
-- Data SeedingPython 3.13 · Faker · mysql-connectorBusiness Intelligence
-- Power BI DesktopVersion 
-- ControlGit / GitHub
+
+
+
 
 ## Repository Structure
 
@@ -119,33 +207,7 @@ Then run all cells sequentially. The reset_db() function clears all tables befor
 
 
 # Dashboards & Key Findings
-Three Power BI dashboards answer the descriptive business questions defined for this project. Screenshots below — the .pbix file is available in the dashboards/ folder.
 
-### 1.  Customer Profile Dashboard
-
-<img width="1292" height="708" alt="Tab usuarios" src="https://github.com/user-attachments/assets/3faa8db9-a90a-4fa4-a42f-8e9e28a4cf2e" />
-
-- 87 verified users · 128 total bets
-- Dominant age segment: 55+ (92 users) — consistent with high-value bettor profile.
-- Gender split: 61% male / 36% female — female participation significantly above market average (~10%).
-- Top cities: Cartagena, Manizales, Barranquilla.
-- Payment methods evenly distributed across all 5 types.
-
-### 2. Financial Performance Dashboard
-<img width="1300" height="724" alt="image" src="https://github.com/user-attachments/assets/f5a6b212-66ae-4c6c-8680-2d094b8932da" />
-
-- Total wagered: COP 321.75M · Total paid out: COP 671.70M.
-- Net margin: -COP 349.95M means platform operating at a loss.
-- Average bet ticket: COP 2.51M — 50x above the Colombian market average of COP 50,000.
-- Football drives the highest volume but also the highest losses for the house.
-- Liga BetPlay is the only competition where the house maintains a positive edge.
-
-### 3. Market & Events Dashboard
-<img width="1286" height="713" alt="image" src="https://github.com/user-attachments/assets/2766b3e6-f9f7-4b51-a63c-5e372fed8b63" />
-
-- Resultado Exacto and Ambos Anotan concentrate the highest wagered volume.
-- Market type distribution is nearly uniform across all 5 types (~20% each).
-- La Liga and Vuelta a España generate the highest user winnings — highest risk markets for the platform.
 
 
 ### 💡 Business Insights & Recommendations

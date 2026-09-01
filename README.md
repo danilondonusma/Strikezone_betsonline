@@ -67,6 +67,7 @@ The dashboards answer these 8 strategic questions:
 The next three Power BI dashboards answer the descriptive business questions defined for this project. Screenshots below — the .pbix file is available in the dashboards/ folder.
 
 ### 1.  Customer Profile Dashboard
+**Key Metrics:**
 
 <img width="1292" height="708" alt="Tab usuarios" src="https://github.com/user-attachments/assets/3faa8db9-a90a-4fa4-a42f-8e9e28a4cf2e" />
 
@@ -96,23 +97,109 @@ This raises critical strategic questions:
 ### 2. Financial Performance Dashboard
 <img width="1300" height="724" alt="image" src="https://github.com/user-attachments/assets/f5a6b212-66ae-4c6c-8680-2d094b8932da" />
 
-- Total wagered: COP 321.75M · Total paid out: COP 671.70M.
-- Net margin: -COP 349.95M means platform operating at a loss.
-- Average bet ticket: COP 2.51M — 50x above the Colombian market average of COP 50,000.
-- Football drives the highest volume but also the highest losses for the house.
-- Liga BetPlay is the only competition where the house maintains a positive edge.
+**Key Metrics:**
+- **Total wagered:** COP 321.75M
+- **Total paid out:** COP 671.70M
+- **Net margin:** **-COP 349.95M** (platform operating at a significant loss)
+
+---
+**🧠 Business Questions Triggered:**
+
+The financial metrics reveal a **critical profitability crisis** that demands immediate strategic intervention. Let's break down the three most pressing issues:
+
+### 1. Net Margin: -COP 349.95M
+
+This is the **most alarming KPI** in the entire dashboard. The platform is paying out **more than double** what it receives in wagers (671.70M vs. 321.75M), resulting in a **-109% net margin**.
+
+**Potential Root Causes:**
+- **Overly generous odds:** The house may be offering odds that are too favorable to users, resulting in consistent losses.
+- **Lack of risk management:** Markets may not be properly balanced (e.g., heavy betting on one side of a market without adjusting odds).
+- **Competitive pressure:** The platform may be offering promotional odds (e.g., "money-back specials") that are not sustainable.
+- **Data quality issues:** There may be errors in payout calculations or sample bias in the test data.
+
+**Strategic Implications:**
+- This is a **red flag** that the business model is not viable in its current form.
+- Immediate action is required to **recalibrate odds** and implement **dynamic risk management**.
+- The platform should consider **restricting high-risk markets** or introducing **maximum payout limits**.
+
+---
+### 💼 Strategic Recommendations
+
+Based on these findings, I recommend the following immediate actions:
+
+1. **Odds Recalibration:** Conduct a comprehensive review of all odds across all sports and markets. Adjust odds to achieve a **minimum house edge of 5%** (from the current negative margin).
+
+2. **Risk Management Implementation:** Introduce a **dynamic odds adjustment system** that automatically adjusts odds based on betting volume, market sentiment, and user segments.
+
+3. **Data Validation:** Validate the synthetic data against real-world benchmarks to ensure the "average bet ticket" and "net margin" metrics are realistic and not artifacts of the data generation process.
+
+---
+
+### 📊 Key Performance Indicators to Monitor
+
+| KPI | Current | Target | Action Plan |
+| :--- | :--- | :--- | :--- |
+| **Net Margin** | -109% | +5% | Recalibrate odds by 3-5% |
+| **Average Bet Ticket** | COP 2.51M | COP 500K | Validate data; introduce premium tier |
+| **Football Loss Ratio** | 60%+ | <50% | Introduce micro-markets & adjust odds |
+| **Liga BetPlay Margin** | Positive | Expand | Launch marketing campaigns |
 
 ### 3. Market & Events Dashboard
 <img width="1286" height="713" alt="image" src="https://github.com/user-attachments/assets/2766b3e6-f9f7-4b51-a63c-5e372fed8b63" />
 
-- Resultado Exacto and Ambos Anotan concentrate the highest wagered volume.
-- Market type distribution is nearly uniform across all 5 types (~20% each).
-- La Liga and Vuelta a España generate the highest user winnings — highest risk markets for the platform.
+- **Average bet ticket:** **COP 2.51M** — 50x above the Colombian market average (COP 50,000)
+- **Football drives the highest volume** but also the highest losses for the house.
+- **Liga BetPlay is the only competition** where the house maintains a positive edge.
+- **Resultado Exacto and Ambos Anotan concentrate the highest wagered volume**.
+- **Market type distribution is nearly uniform across all 5 types (~20% each)**.
+- **La Liga and Vuelta a España generate the highest user winnings — highest risk markets for the platform**.
 
+**🧠 Business Questions Triggered:**
 
+### 1. Average Bet Ticket: COP 2.51M
 
+This is **50x higher than the Colombian market average** (COP 50,000). While this could indicate a high-value user segment, it also represents a **concentration risk**.
 
+**Two Competing Hypotheses:**
 
+| Hypothesis | Explanation | Strategic Implication |
+| :--- | :--- | :--- |
+| **Premium User Opportunity** | The platform has attracted a niche of high-net-worth bettors who place large wagers. | **Opportunity:** Develop a "Premium Betting" tier with personalized services, VIP odds, and dedicated account managers. |
+| **Sample Bias** | The synthetic data may have generated disproportionately large bets due to unrealistic bet size ranges. | **Action:** Review and recalibrate the data generation logic to ensure realistic bet sizes. |
+
+**Recommendation:** Validate this metric with real-world benchmarks. If the data is accurate, this is a **competitive advantage** that should be leveraged with a premium user strategy.
+
+---
+
+### 2. Football Drives High Volume & High Losses
+
+Football (Fútbol) generates the highest betting volume but also the **highest losses for the house**. This is consistent with the global sports betting industry, where football markets are highly competitive and often operate on thin margins.
+
+**Strategic Questions:**
+- **Are football odds too generous?** If the platform is consistently losing on football, odds may need to be adjusted downward (e.g., from 1.90 to 1.85) to improve the house edge.
+- **Can we introduce new football markets?** Instead of competing on standard markets (Winner, Handicap), the platform could innovate with derivative markets (e.g., "First Goalscorer", "Half-Time/Full-Time", "Both Teams to Score") where the house has a natural edge.
+- **Is there a correlation with user segment?** Do high-value users bet predominantly on football? If so, targeted promotions on other sports could diversify risk.
+
+---
+
+### 3. Liga BetPlay: The Only Profitable Competition
+
+Liga BetPlay (the Colombian football league) is the **only competition** where the house maintains a positive edge. This is a **bright spot** in an otherwise bleak financial picture.
+
+**Insights & Action:**
+- **Liga BetPlay may have less efficient odds** compared to international competitions (Premier League, Champions League), giving the house an information advantage.
+- **Recommendation:** Double down on Liga BetPlay by offering more markets, promotions, and marketing campaigns tied to Colombian football.
+- **Study the odds calibration** in Liga BetPlay and replicate it across other competitions.
+
+### 4. 
+
+### 💼 Strategic Recommendations
+
+1. **Premium User Program:** Launch a "StrikeZone VIP" tier targeting users with average bet sizes > COP 1M. Offer exclusive odds, cashback, and personalized promotions.
+
+2. **Liga BetPlay Expansion:** Double the number of betting markets available for Liga BetPlay matches. Run a "Colombian Football Boost" campaign to drive volume in the only profitable competition.
+
+3. **Football Market Innovation:** Introduce "micro-markets" (e.g., "Next Goalscorer", "Card Count", "Corner Count") in football to diversify risk and create new revenue streams.
 
 
 ## Repository Structure

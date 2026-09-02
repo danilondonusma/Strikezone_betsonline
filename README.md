@@ -284,6 +284,8 @@ Based on these findings, I recommend the following actions:
 | **Market Distribution** | Uniform (~20% each) | 35% Winner, 25% Handicap, 20% Complex | Use promotions to guide users toward profitable markets |
 
 ## 🗄️ Database Schema
+<img width="767" height="833" alt="image" src="https://github.com/user-attachments/assets/78ceacc5-109f-45de-ae4b-cb50a4cb0ca1" />
+
 
 strikezone/
 

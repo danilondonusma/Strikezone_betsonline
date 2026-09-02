@@ -9,17 +9,17 @@
 A complete **end-to-end data analytics project** for a simulated sports betting platform operating in the Colombian market. From database modeling with MySQL, synthetic data generation with Python, to executive dashboards in Power BI — this project demonstrates the full lifecycle of a data pipeline designed to answer real business questions.
 
 ## 📋 Table of Contents
-
-1. [Business Context & Problem Statement](#business-context--problem-statement)
-2. [Key Business Questions Answered](#key-business-questions-answered)
-3. [Tech Stack](#tech-stack)
-4. [Dashboard Highlights](#dashboard-highlights)
-5. [Database Schema](#database-schema)
-6. [Project Structure](#project-structure)
-7. [Setup & Installation](#setup--installation)
-8. [Key Insights & Business Recommendations](#key-insights--business-recommendations)
-9. [Next Steps](#next-steps)
-10. [License](#license)
+- [Business Context & Problem Statement](#business-context--problem-statement)
+- [Key Business Questions Answered](#key-business-questions-answered)
+- [Tech Stack](#tech-stack)
+- [Dashboard Highlights](#dashboard-highlights)
+- [Database Schema](#database-schema)
+- [Project Structure](#project-structure)
+- [Setup & Installation](#setup--installation)
+- [Key Insights & Business Recommendations](#key-insights--business-recommendations)
+- [Executive Summary & Next Steps](#executive-summary--next-steps)
+- [Conclusions](#conclusions)
+- [Scope & Limitations](#scope--limitations)
 
 ## 📌 Business Context & Problem Statement
 

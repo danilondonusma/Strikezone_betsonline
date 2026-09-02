@@ -422,22 +422,22 @@ This ensures that all foreign key constraints are satisfied before inserting dep
    git clone https://github.com/danilondonusma/Strikezone_betsonline.git
    cd Strikezone_betsonline bash 
    
-2. ** Create a virtual environment:**
+2. **Create a virtual environment:**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    
-3. ** Install dependencies:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
 
-4. ** Set up your MySQL database:**
+4. **Set up your MySQL database:**
 
 - Ensure MySQL 8.0 is running.
 - Create a database named apuestas_d.
 - Run the schema script from the repository (if provided).
 
-5. ** Configure environment variables:**
+5. **Configure environment variables:**
 
 - Copy .env.example to .env.
 - Edit .env with your MySQL credentials:
@@ -448,11 +448,11 @@ This ensures that all foreign key constraints are satisfied before inserting dep
    DB_PASSWORD=your_password
    DB_NAME=apuestas_d
 
-6. ** Run the data seeder:**
+6. **Run the data seeder:**
    ```bash
    python run.py
 
-7. ** Open the Power BI dashboard:**
+7. **Open the Power BI dashboard:**
 
 - Open dashboards/strikezone.pbix.
 - Update the data source connection if needed.

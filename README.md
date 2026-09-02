@@ -284,80 +284,120 @@ Based on these findings, I recommend the following actions:
 | **Market Distribution** | Uniform (~20% each) | 35% Winner, 25% Handicap, 20% Complex | Use promotions to guide users toward profitable markets |
 
 ## 🗄️ Database Schema
-<img width="767" height="833" alt="image" src="https://github.com/user-attachments/assets/78ceacc5-109f-45de-ae4b-cb50a4cb0ca1" />
+
+The database follows a **normalized relational model** with the following core tables:
+
+| Table | Description |
+| :--- | :--- |
+| `USUARIO` | Customer master data (KYC, demographics, registration) |
+| `SALDO_CUENTA` | Account balances for each user |
+| `METODO_PAGO` | Payment methods (Credit Card, Debit, Transfer, Digital Wallet) |
+| `EVENTO` | Sports events with deporte, liga, fecha, and resultado |
+| `PARTICIPANTES` | Athletes, teams, and fighters |
+| `MERCADO` | Betting markets (Winner, Handicap, Total Anotaciones, etc.) |
+| `APUESTA` | User bets with amounts, status, and timestamps |
+| `CUOTA` | Odds for each bet at the time of placement |
+| `HISTORIAL_CUOTA` | Historical odds changes (1-5 changes per bet) |
+| `TRANSACCION` | Financial transactions (deposits, withdrawals, bets, winnings) |
+| `HISTORIAL_APUESTA` | Audit log for bet changes |
+
+**ER Diagram:** <img width="767" height="833" alt="image" src="https://github.com/user-attachments/assets/78ceacc5-109f-45de-ae4b-cb50a4cb0ca1" />
+
+---
+
+## 📁 Project Structure
+
+Strikezone/
+├── .env # Environment variables (credentials)
+├── requirements.txt # Python dependencies
+├── run.py # Entry point
+├── apuestas_d.ipynb # Original exploratory notebook (legacy)
+├── seeder/ # Main package
+│ ├── config.py # Database connection
+│ ├── main.py # Orchestrator
+│ ├── utils/
+│ │ └── helpers.py # Master data & helper functions
+│ └── seeders/
+│ ├── users.py # User, balance, payment method seeders
+│ ├── events.py # Events, participants, markets
+│ ├── bets.py # Bets, odds, odds history
+│ └── transactions.py # Financial transactions
+└── dashboards/
+└── strikezone.pbix # Power BI file
 
 
-strikezone/
+---
 
-│
-├── schema/
-│   └── apuestas_d.sql          # Full database schema with tables, indexes and triggers
+## 🧠 Key Design Decisions
 
-│
-├── seeder/
-│   └── apuestas_d.ipynb        # Python notebook for synthetic data generation
+Several architectural decisions were made to ensure data integrity, performance, and scalability:
 
-│
-├── dashboards/
-│   └── strikezone.pbix         # Power BI file with three analytical dashboards
+### Database Design
 
-│   └── img/
-│       ├── dashboard_clientes.png
-│       ├── dashboard_apuestas.png
-│       └── dashboard_mercado.png
+| Decision | Implementation | Rationale |
+| :--- | :--- | :--- |
+| **Normalization** | 3NF (Third Normal Form) with 12 tables. | Minimizes redundancy and ensures data consistency across the platform. |
+| **Referential Integrity** | Cascading foreign keys (`ON DELETE CASCADE`, `ON UPDATE CASCADE`). | Ensures that related records (e.g., bets, transactions) are automatically cleaned up when a user or event is removed. |
+| **Triggers** | Automatic balance update after each transaction. | Prevents manual errors and ensures real-time balance accuracy. |
+| **Indexes** | Optimized indexes on `ID_Usuario`, `ID_Evento`, `Fecha_hora`, and `Tipo_transaccion`. | Improves query performance for user lookups, event filtering, and financial reporting. |
+| **Audit Trail** | `HISTORIAL_APUESTA` table tracks all bet status changes. | Enables fraud detection, user behavior analysis, and compliance with regulatory requirements. |
+| **Currency Precision** | All monetary values stored as `DECIMAL(15,2)`. | Avoids floating-point precision errors common with `FLOAT` in financial calculations. |
 
-│
-└── README.md
+### Python Architecture
 
-## Database Schema
-The schema models the core entities of a sports betting operation:
+| Decision | Implementation | Rationale |
+| :--- | :--- | :--- |
+| **Modular Design** | Separate modules for users, events, bets, and transactions. | Improves maintainability, testability, and scalability. |
+| **Environment Variables** | Credentials stored in `.env` (not hardcoded). | Follows security best practices and prevents credential exposure on GitHub. |
+| **Reusable Helpers** | Centralized master data and helper functions in `helpers.py`. | Eliminates code duplication and ensures consistency across seeders. |
+| **Reproducibility** | `random.seed(42)` ensures consistent data generation. | Allows for reproducible testing and debugging. |
 
-USUARIO — registered users with KYC status, city and demographic data.
+### Power BI Design
 
-SALDO_CUENTA — user account balances, updated automatically via triggers.
+| Decision | Implementation | Rationale |
+| :--- | :--- | :--- |
+| **Star Schema** | Fact tables (`APUESTA`, `TRANSACCION`) connected to dimension tables (`USUARIO`, `EVENTO`, `MERCADO`). | Optimizes DAX performance and simplifies report creation. |
+| **DAX Measures** | Key metrics (GGR, ARP User, Win Rate) implemented as measures. | Enables dynamic filtering and drill-through without recalculating base data. |
+| **Drill-Through** | Users can click from summary views to detailed user-level data. | Enables root-cause analysis for business anomalies. |
 
-METODO_PAGO — payment methods per user.
+---
+## 📊 Data Seeding
 
-EVENTO — sporting events across 5 sports and 12 leagues.
+The Python notebook generates realistic synthetic data for all tables using the **Faker** library with Colombian locale (`es_CO`). This approach enables the platform to test and validate the data pipeline before deploying with real data.
 
-MERCADO — betting markets per event (Winner, Handicap, Both Score, etc.).
+### Data Volume Generated
 
-PARTICIPANTES — teams and athletes linked to events.
+| Entity | Quantity | Description |
+| :--- | :--- | :--- |
+| **Users** | 300 | Includes KYC status, gender, city, registration date, and age distribution. |
+| **Sports Events** | 60 | Across 5 sports (Football, Basketball, Tennis, MMA, Cycling) and 12 leagues. |
+| **Bets** | 500 | Realistic COP amounts with sport-consistent participants and status distribution. |
+| **Financial Transactions** | 5,000 | Deposits, withdrawals, bet placements, winnings, and adjustments. |
+| **Odds History** | ~1,500 | Simulated 1-5 odds changes per bet to reflect market dynamics. |
 
-APUESTA — individual bets with amount, status and odds.
+### Key Seeding Features
 
-CUOTA — odds snapshot at the time of each bet.
+| Feature | Implementation | Why it matters |
+| :--- | :--- | :--- |
+| **User Profile Distribution** | KYC status weighted (70% verified, 20% pending, 10% rejected). | Reflects real-world verification rates and enables segmentation analysis. |
+| **Gender Distribution** | 62% male, 35% female, 3% other (based on Colombian market data). | Enables gender-based behavioral analysis. |
+| **Bet Amount Distribution** | Weighted by user profile (30% casual, 45% frequent, 20% high-value, 5% whale). | Simulates realistic betting behavior across different user segments. |
+| **Participant Consistency** | Event participants are matched to the sport (e.g., football teams for football events). | Ensures data consistency and enables sport-specific analysis. |
+| **Balance Validation** | Solvency check before recording withdrawals or bet transactions. | Prevents negative balances and simulates real-world financial controls. |
+| **Reproducibility** | Fixed random seed (`random.seed(42)`). | Enables identical data generation across multiple runs for testing. |
 
-TRANSACCION — full financial transaction log.
+### Data Generation Process
 
-HISTORIAL_CUOTA — odds movement history per market.
+The seeding process follows a **dependency-aware order** to maintain referential integrity:
 
-HISTORIAL_APUESTA — automated bet audit trail.
+1. **Users** → **Saldos** → **Métodos de Pago**
+2. **Participantes** → **Eventos** → **Mercados** → **Participante_Evento**
+3. **Apuestas** → **Cuotas** → **Historial_Cuota**
+4. **Transacciones** (validates user balance before processing)
 
-#### Key design decisions:
-
-- Triggers ensure automatic balance updates on every transaction.
-- Indexes optimized for user queries, event filtering and odds history
-- Referential integrity enforced with cascading foreign keys
+This ensures that all foreign key constraints are satisfied before inserting dependent records.
 
 
-# Data Seeding
-The Python notebook generates realistic synthetic data for all tables using the Faker library with Colombian locale (es_CO).
-
-Data volume generated:
-
-- 300 users with KYC status, gender, city and registration date
-- 60 sporting events across 5 sports and 12 leagues
-- 500 bets with realistic COP amounts and sport-consistent participants
-- 5,000 financial transactions with balance validation
-- Full odds change history per bet
-
-#### Key seeding features:
-
-- Bet amounts distributed by realistic user profiles (casual, frequent, high-value)
-- KYC status weighted to reflect real-world verification rates (70% verified)
-- Gender distribution based on Colombian market data
-- Solvency check before recording withdrawal or bet transactions
 
 Setup:
 

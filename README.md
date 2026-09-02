@@ -10,7 +10,7 @@ A complete **end-to-end data analytics project** for a simulated sports betting 
 
 ## 📋 Table of Contents
 
-1 [Business Context & Problem Statement](#business-context--problem-statement)
+1. [Business Context & Problem Statement](#business-context--problem-statement)
 2. [Key Business Questions Answered](#key-business-questions-answered)
 3. [Tech Stack](#tech-stack)
 4. [Dashboard Highlights](#dashboard-highlights)

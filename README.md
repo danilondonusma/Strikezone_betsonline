@@ -101,6 +101,7 @@ This raises critical strategic questions:
 - **Total wagered:** COP 321.75M
 - **Total paid out:** COP 671.70M
 - **Net margin:** **-COP 349.95M** (platform operating at a significant loss)
+- **Football drives the highest volume** but also the highest losses for the house.
 
 ---
 **🧠 Business Questions Triggered:**
@@ -122,6 +123,15 @@ This is the **most alarming KPI** in the entire dashboard. The platform is payin
 - Immediate action is required to **recalibrate odds** and implement **dynamic risk management**.
 - The platform should consider **restricting high-risk markets** or introducing **maximum payout limits**.
 
+### 2. Football Drives High Volume & High Losses
+
+Football (Fútbol) generates the highest betting volume but also the **highest losses for the house**. This is consistent with the global sports betting industry, where football markets are highly competitive and often operate on thin margins.
+
+**Strategic Questions:**
+- **Are football odds too generous?** If the platform is consistently losing on football, odds may need to be adjusted downward (e.g., from 1.90 to 1.85) to improve the house edge.
+- **Can we introduce new football markets?** Instead of competing on standard markets (Winner, Handicap), the platform could innovate with derivative markets (e.g., "First Goalscorer", "Half-Time/Full-Time", "Both Teams to Score") where the house has a natural edge.
+- **Is there a correlation with user segment?** Do high-value users bet predominantly on football? If so, targeted promotions on other sports could diversify risk.
+
 ---
 ### 💼 Strategic Recommendations
 
@@ -132,6 +142,8 @@ Based on these findings, I recommend the following immediate actions:
 2. **Risk Management Implementation:** Introduce a **dynamic odds adjustment system** that automatically adjusts odds based on betting volume, market sentiment, and user segments.
 
 3. **Data Validation:** Validate the synthetic data against real-world benchmarks to ensure the "average bet ticket" and "net margin" metrics are realistic and not artifacts of the data generation process.
+
+4. **Football Market Innovation:** Introduce "micro-markets" (e.g., "Next Goalscorer", "Card Count", "Corner Count") in football to diversify risk and create new revenue streams.
 
 ---
 
@@ -148,7 +160,6 @@ Based on these findings, I recommend the following immediate actions:
 <img width="1286" height="713" alt="image" src="https://github.com/user-attachments/assets/2766b3e6-f9f7-4b51-a63c-5e372fed8b63" />
 
 - **Average bet ticket:** **COP 2.51M** — 50x above the Colombian market average (COP 50,000)
-- **Football drives the highest volume** but also the highest losses for the house.
 - **Liga BetPlay is the only competition** where the house maintains a positive edge.
 - **Resultado Exacto and Ambos Anotan concentrate the highest wagered volume**.
 - **Market type distribution is nearly uniform across all 5 types (~20% each)**.
@@ -171,18 +182,7 @@ This is **50x higher than the Colombian market average** (COP 50,000). While thi
 
 ---
 
-### 2. Football Drives High Volume & High Losses
-
-Football (Fútbol) generates the highest betting volume but also the **highest losses for the house**. This is consistent with the global sports betting industry, where football markets are highly competitive and often operate on thin margins.
-
-**Strategic Questions:**
-- **Are football odds too generous?** If the platform is consistently losing on football, odds may need to be adjusted downward (e.g., from 1.90 to 1.85) to improve the house edge.
-- **Can we introduce new football markets?** Instead of competing on standard markets (Winner, Handicap), the platform could innovate with derivative markets (e.g., "First Goalscorer", "Half-Time/Full-Time", "Both Teams to Score") where the house has a natural edge.
-- **Is there a correlation with user segment?** Do high-value users bet predominantly on football? If so, targeted promotions on other sports could diversify risk.
-
----
-
-### 3. Liga BetPlay: The Only Profitable Competition
+### 2. Liga BetPlay: The Only Profitable Competition
 
 Liga BetPlay (the Colombian football league) is the **only competition** where the house maintains a positive edge. This is a **bright spot** in an otherwise bleak financial picture.
 
@@ -191,18 +191,99 @@ Liga BetPlay (the Colombian football league) is the **only competition** where t
 - **Recommendation:** Double down on Liga BetPlay by offering more markets, promotions, and marketing campaigns tied to Colombian football.
 - **Study the odds calibration** in Liga BetPlay and replicate it across other competitions.
 
-### 4. 
+### 3. "Resultado Exacto" and "Ambos Anotan" — Complex Markets Attract Sharp Bettors
+
+These markets (Exact Score and Both Teams to Score) are among the most complex and carry the highest odds. Their high wagered volume suggests that a subset of StrikeZone users — potentially **"Sharp Bettors"** — prefer high-risk, high-reward markets.
+
+**Why is this significant?**
+
+| Bettor Type | Characteristics | Behavior |
+| :--- | :--- | :--- |
+| **Recreational Bettor** | Bets on favorites, low odds, familiar markets (Winner, Handicap). | Prefers "Winner" markets (40% of volume). |
+| **Sharp Bettor** | Data-driven, seeks value, bets on complex markets, often wins. | Prefers "Resultado Exacto" and "Ambos Anotan" (higher odds, higher risk). |
+
+**Strategic Implications:**
+- The **near-uniform distribution** across all 5 market types (~20% each) is unusual. In most platforms, "Winner" markets dominate with 50-60% of volume.
+- This suggests that StrikeZone has a **disproportionately high concentration of Sharp Bettors** compared to industry averages.
+- **Action:** Develop a **"Sharp Bettor Identification" strategy** using behavioral analytics (e.g., bet size, market selection, frequency, win rate). Once identified, create a **"StrikeZone Pro" premium tier** with exclusive perks (better odds, cashback, personalized promotions).
+
+### 4. La Liga vs. Liga BetPlay — Why Does an International League Generate Higher Winnings?
+
+This is the **most critical finding** in this dashboard. Let's break down the competing hypotheses:
+
+| Hypothesis | Explanation | Strategic Implication |
+| :--- | :--- | :--- |
+| **Information Asymmetry** | International leagues (La Liga, Premier League) have **vastly more public information** (player stats, team form, media coverage) available to bettors. Bettors can make more informed, data-driven decisions, reducing the house edge. | The house may lack the analytical tools to price odds accurately in international markets. |
+| **Fan Base & Emotional Betting** | Real Madrid, Barcelona, and other international clubs have **massive global fan bases**. Colombian bettors may wager based on **loyalty and emotion** rather than statistical analysis, creating a "public bias" where the house is consistently on the wrong side of the bet. | This creates a **systemic risk** — the house is effectively subsidizing fan loyalty. |
+| **Local Market Efficiency** | Liga BetPlay (Colombian league) has **less public information**, fewer analysts, and less media coverage. This creates **inefficiencies** that the house can exploit by setting odds that are more favorable to the platform. | The house may have a **local knowledge advantage** in Liga BetPlay, giving them a natural edge. |
+| **Regulatory & Competition Factors** | Internacional markets are more competitive, with better odds offered by international bookmakers. To compete, StrikeZone may be offering more generous odds, reducing the house edge. | The platform may be overcompensating to attract users who would otherwise bet with international platforms. |
+
+
+### 5. La Liga vs. Premier League — A Critical Distinction
+
+**Key Finding:** La Liga and Vuelta a España generate **high user winnings**, while the **Premier League does NOT** — despite both being international competitions.
+
+**Why does La Liga attract Sharp Bettors while the Premier League does not?**
+
+| Factor | La Liga | Premier League | Explanation |
+| :--- | :--- | :--- | :--- |
+| **Cultural & Linguistic Connection** | 🇪🇸 Spanish language and culture are deeply embedded in Colombian media and daily life. | 🇬🇧 Language barrier (English) and cultural distance reduce emotional connection. | Colombian bettors have **more information and emotional investment** in Spanish football than English football. |
+| **Media Coverage** | La Liga matches are broadcast with Spanish commentary at favorable times (morning/afternoon). | Premier League matches are broadcast in English or with Spanish commentary at less favorable times (early morning/late night). | Higher exposure drives more informed bets — leading to higher user winnings. |
+| **Sharp Bettor Specialization** | Sharp bettors may specialize in leagues with **more available public data** — La Liga has extensive analytics (Opta, StatsBomb) in Spanish. | Premier League also has data, but the language barrier may reduce accessibility for some bettors. | Sharp bettors in Colombia may gravitate toward La Liga due to lower friction in accessing information. |
+| **Concentration of High-Value Users** | A small but highly active segment may be placing **large, well-informed bets** on La Liga. | Premier League bets may be more distributed across recreational users. | If a few Sharp users win consistently, they can significantly impact house profitability. |
+
+**Conclusion:** The "International League" hypothesis is **too simplistic**. La Liga's outsized losses for the house are likely driven by a **combination of cultural affinity, media accessibility, and a concentration of Sharp bettors** — factors that do not apply equally to the Premier League.
+
+**Recommendation:** Conduct a **"League Profitability Analysis"** to identify which specific factors (bet size, user segment, market type) are driving La Liga's losses. This will inform more targeted risk management strategies.
+
+### 6. Liga BetPlay — Why is it the most profitable competition?
+
+While La Liga and Vuelta a España generate significant losses for the house, **Liga BetPlay consistently delivers positive margins**. 
+
+#### The  Reasons:
+
+| Factor | Explanation | Evidence |
+| :--- | :--- | :--- |
+| **1. Recreational vs. Sharp Bettors** | Liga BetPlay attracts **recreational bettors** who wager based on **emotional loyalty** to local teams (Millonarios, Atlético Nacional, Junior) rather than statistical analysis. | This "home bias" creates predictable patterns that the house can exploit — bettors overestimate their teams, creating value for the platform. |
+| **2. Distributed Betting Volume** | Bets on Liga BetPlay are **spread across a large number of users** with small to medium bet sizes. | This **dilutes risk** — no single user or bet can significantly impact the house's overall P&L. |
+| **3. Lower Access to Advanced Analytics** | While media coverage is extensive, **advanced data** (xG, heat maps, predictive models) is **less accessible** for Liga BetPlay compared to La Liga or the Premier League. | The average bettor lacks the analytical tools to make fully informed bets, giving the house a **natural information advantage**. |
+| **4. Less Competitive Odds** | International bookmakers (Bet365, Betfair) **do not invest heavily** in pricing Liga BetPlay odds, reducing competitive pressure. | StrikeZone can offer **slightly less favorable odds** without losing users to competitors, improving the house edge. |
+| **5. Emotional "Chasing" Behavior** | Colombian bettors often **"chase"** their losses after a team defeat, placing additional bets to recover losses. | This behavior increases betting volume and the house's overall margin, especially in local derbies. |
+
 
 ### 💼 Strategic Recommendations
 
-1. **Premium User Program:** Launch a "StrikeZone VIP" tier targeting users with average bet sizes > COP 1M. Offer exclusive odds, cashback, and personalized promotions.
+Based on these findings, I recommend the following actions:
 
-2. **Liga BetPlay Expansion:** Double the number of betting markets available for Liga BetPlay matches. Run a "Colombian Football Boost" campaign to drive volume in the only profitable competition.
+1. **Sharp Bettor Identification Program**  
+   - Develop a segmentation model to classify users based on behavior (bet size, market selection, frequency, win rate).  
+   - Create a **"StrikeZone Pro"** premium tier for Sharp Bettors offering exclusive benefits (better odds, cashback, personalized insights).
 
-3. **Football Market Innovation:** Introduce "micro-markets" (e.g., "Next Goalscorer", "Card Count", "Corner Count") in football to diversify risk and create new revenue streams.
+2. **Market Efficiency Study**  
+   - Benchmark StrikeZone's odds against 5-10 international competitors for the top 10 markets.  
+   - Identify overpriced and underpriced markets and recalibrate to achieve a **minimum 5% house edge**.
 
+3. **Expand Liga BetPlay Offerings**  
+   - Double the number of markets available for Liga BetPlay matches.  
+   - Run a "Colombian Football Boost" campaign with promotions tied exclusively to local competitions.
 
-## Repository Structure
+4. **Risk Management for International Leagues**  
+   - Introduce **dynamic odds adjustment** for high-volume international markets (La Liga, Champions League).  
+   - Consider **lowering maximum payouts** for high-risk markets to limit exposure.
+
+5. **Data-Driven Odds Calibration**  
+   - Implement a **machine learning model** to predict optimal odds based on historical data, public sentiment, and betting volume.
+
+### 📊 Key Performance Indicators to Monitor
+
+| KPI | Current | Target | Action Plan |
+| :--- | :--- | :--- | :--- |
+| **Liga BetPlay Margin** | Positive (profitable) | Maintain | Expand offerings & promotions |
+| **La Liga Loss Ratio** | High (losses for the house) | Reduce by 20% | Recalibrate odds & introduce dynamic adjustments |
+| **Resultado Exacto Volume** | High (complex markets) | Maintain / Grow | Launch "StrikeZone Pro" tier for Sharp Bettors |
+| **Market Distribution** | Uniform (~20% each) | 35% Winner, 25% Handicap, 20% Complex | Use promotions to guide users toward profitable markets |
+
+## 🗄️ Database Schema
 
 strikezone/
 

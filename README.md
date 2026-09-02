@@ -104,7 +104,7 @@ This raises critical strategic questions:
 - **Football drives the highest volume** but also the highest losses for the house.
 
 ---
-**🧠 Business Questions Triggered:**
+**🧠 Business Questions and Insights Triggered:**
 
 The financial metrics reveal a **critical profitability crisis** that demands immediate strategic intervention. Let's break down the three most pressing issues:
 
@@ -191,7 +191,7 @@ Liga BetPlay (the Colombian football league) is the **only competition** where t
 - **Recommendation:** Double down on Liga BetPlay by offering more markets, promotions, and marketing campaigns tied to Colombian football.
 - **Study the odds calibration** in Liga BetPlay and replicate it across other competitions.
 
-### 3. "Resultado Exacto" and "Ambos Anotan" — Complex Markets Attract Sharp Bettors
+### 3. "Resultado Exacto" and "Ambos Anotan": Complex Markets Attract Sharp Bettors
 
 These markets (Exact Score and Both Teams to Score) are among the most complex and carry the highest odds. Their high wagered volume suggests that a subset of StrikeZone users — potentially **"Sharp Bettors"** — prefer high-risk, high-reward markets.
 
@@ -207,7 +207,7 @@ These markets (Exact Score and Both Teams to Score) are among the most complex a
 - This suggests that StrikeZone has a **disproportionately high concentration of Sharp Bettors** compared to industry averages.
 - **Action:** Develop a **"Sharp Bettor Identification" strategy** using behavioral analytics (e.g., bet size, market selection, frequency, win rate). Once identified, create a **"StrikeZone Pro" premium tier** with exclusive perks (better odds, cashback, personalized promotions).
 
-### 4. La Liga vs. Liga BetPlay — Why Does an International League Generate Higher Winnings?
+### 4. La Liga vs. Liga BetPlay: Why Does an International League Generate Higher Winnings?
 
 This is the **most critical finding** in this dashboard. Let's break down the competing hypotheses:
 
@@ -219,7 +219,7 @@ This is the **most critical finding** in this dashboard. Let's break down the co
 | **Regulatory & Competition Factors** | Internacional markets are more competitive, with better odds offered by international bookmakers. To compete, StrikeZone may be offering more generous odds, reducing the house edge. | The platform may be overcompensating to attract users who would otherwise bet with international platforms. |
 
 
-### 5. La Liga vs. Premier League — A Critical Distinction
+### 5. La Liga vs. Premier League: A Critical Distinction
 
 **Key Finding:** La Liga and Vuelta a España generate **high user winnings**, while the **Premier League does NOT** — despite both being international competitions.
 
@@ -236,7 +236,7 @@ This is the **most critical finding** in this dashboard. Let's break down the co
 
 **Recommendation:** Conduct a **"League Profitability Analysis"** to identify which specific factors (bet size, user segment, market type) are driving La Liga's losses. This will inform more targeted risk management strategies.
 
-### 6. Liga BetPlay — Why is it the most profitable competition?
+### 6. Liga BetPlay: Why is it the most profitable competition?
 
 While La Liga and Vuelta a España generate significant losses for the house, **Liga BetPlay consistently delivers positive margins**. 
 
@@ -308,21 +308,37 @@ The database follows a **normalized relational model** with the following core t
 ## 📁 Project Structure
 
 Strikezone/
+
 ├── .env # Environment variables (credentials)
+
 ├── requirements.txt # Python dependencies
+
 ├── run.py # Entry point
+
 ├── apuestas_d.ipynb # Original exploratory notebook (legacy)
+
 ├── seeder/ # Main package
-│ ├── config.py # Database connection
-│ ├── main.py # Orchestrator
-│ ├── utils/
-│ │ └── helpers.py # Master data & helper functions
-│ └── seeders/
-│ ├── users.py # User, balance, payment method seeders
-│ ├── events.py # Events, participants, markets
-│ ├── bets.py # Bets, odds, odds history
-│ └── transactions.py # Financial transactions
+
+ │ ├── config.py # Database connection
+
+ │ ├── main.py # Orchestrator
+
+ │ ├── utils/
+
+   │ │ └── helpers.py # Master data & helper functions
+
+ │ └── seeders/
+
+   │ ├── users.py # User, balance, payment method seeders
+
+   │ ├── events.py # Events, participants, markets
+
+   │ ├── bets.py # Bets, odds, odds history
+
+   │ └── transactions.py # Financial transactions
+
 └── dashboards/
+
 └── strikezone.pbix # Power BI file
 
 
@@ -397,36 +413,226 @@ The seeding process follows a **dependency-aware order** to maintain referential
 
 This ensures that all foreign key constraints are satisfied before inserting dependent records.
 
+---
 
+## ⚙️ Setup & Installation
 
-Setup:
+1. **Clone the repository:**
+   ```bash 
+   git clone https://github.com/danilondonusma/Strikezone_betsonline.git
+   cd Strikezone_betsonline bash 
+   
+2. ** Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+3. ** Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
 
-1. bashpip install mysql-connector-python faker
-2. Update the connection config in the notebook before running:
+4. ** Set up your MySQL database:**
 
-pythonDB_CONFIG = {
+- Ensure MySQL 8.0 is running.
+- Create a database named apuestas_d.
+- Run the schema script from the repository (if provided).
 
-    'host':     'localhost',
-    'port':     3306,
-    'user':     'root',
-    'password': 'your_password_here',
-    'database': 'apuestas_d'
-}
+5. ** Configure environment variables:**
 
-Then run all cells sequentially. The reset_db() function clears all tables before each run.
+- Copy .env.example to .env.
+- Edit .env with your MySQL credentials:
+   ```bash
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_USER=your_user
+   DB_PASSWORD=your_password
+   DB_NAME=apuestas_d
 
+6. ** Run the data seeder:**
+   ```bash
+   python run.py
 
-# Dashboards & Key Findings
+7. ** Open the Power BI dashboard:**
 
+- Open dashboards/strikezone.pbix.
+- Update the data source connection if needed.
+  
+---
 
+## 💡 Key Insights & Business Recommendations
 
-### 💡 Business Insights & Recommendations
+This section synthesizes the most critical findings from the three dashboards and translates them into actionable business strategies. The recommendations are prioritized based on **financial impact**, **strategic relevance**, and **ease of implementation**.
 
-- Odds recalibration is urgent, because a net margin of 349M indicates cuotas are not generating sufficient house edge.
-- Diversify user base toward recreational bettors current high-ticket users are sophisticated and win consistently.
-- Capitalize on Liga BetPlay is the only market where the house has a natural edge.
-- Leverage female segment of 36% female participation is a competitive differentiator worth developing.
-- Implement AI-powered odds engine — dynamic odds adjustment and user segmentation are the long-term solution to margin recovery.
+---
+
+### 🔍 Top 5 Strategic Insights
+
+#### 1. The Platform Is Operating at a Significant Loss
+
+- **Total wagered:** COP 321.75M
+- **Total paid out:** COP 671.70M
+- **Net margin:** **-COP 349.95M** (-109% margin)
+
+**Interpretation:** The house is paying out **more than double** what it receives in wagers. This is a **critical red flag** that the current business model is not viable. The platform is effectively subsidizing user winnings without a sustainable revenue model.
+
+**Priority:** 🔴 **Critical** — Immediate action required.
+
+---
+
+#### 2. Average Bet Ticket Is 50x Above Market Average
+
+- **StrikeZone average bet:** COP 2.51M
+- **Colombian market average:** COP 50,000
+
+**Interpretation:** This indicates a **concentration of high-value bettors** (potential "Sharp Bettors") who place large, well-informed wagers. While this could be a competitive advantage, it also represents a **concentration risk** — if these users continue to win consistently, the losses will compound.
+
+**Priority:** 🟠 **High** — Validate data and develop a premium strategy.
+
+---
+
+#### 3. Football Drives High Volume but High Losses
+
+- Football accounts for **45% of all bets**.
+- Football also generates the **highest losses for the house**.
+
+**Interpretation:** The platform is **overexposed** to football markets. While football is the most popular sport, the house is consistently losing on these bets. This suggests that odds may be **too generous** or that the platform is attracting **Sharp Bettors** in this market.
+
+**Priority:** 🟠 **High** — Recalibrate odds and diversify risk.
+
+---
+
+#### 4. La Liga Generates High User Winnings — Premier League Does Not
+
+- **La Liga** and **Vuelta a España** generate the highest user winnings.
+- **Premier League** does **not** generate significant losses.
+
+**Interpretation:** The initial hypothesis of "international vs. local" is **too simplistic**. La Liga's losses are likely driven by a **combination of cultural affinity** (Spanish language, media coverage) and a **concentration of Sharp Bettors** who specialize in Spanish football. The Premier League, despite being international, does not attract the same level of informed betting.
+
+**Priority:** 🟡 **Medium** — Conduct a league-specific profitability analysis.
+
+---
+
+#### 5. Liga BetPlay Is the Only Profitable Competition
+
+- Liga BetPlay is the **only competition** where the house maintains a **positive edge**.
+
+**Interpretation:** Unlike La Liga, Liga BetPlay attracts **recreational bettors** who bet based on **emotional loyalty** to local teams, rather than advanced analytics. This creates a **natural house advantage** — bettors overestimate their teams, and the house profits from this bias.
+
+**Priority:** 🟢 **High** — Double down on Liga BetPlay.
+
+---
+
+### 💼 Strategic Recommendations
+
+Based on these insights, the following **five strategic recommendations** are prioritized for implementation:
+
+#### 1. 🚨 Immediate Odds Recalibration (Financial Recovery)
+
+**Action:**
+- Conduct a comprehensive review of all odds across all sports and markets.
+- Adjust odds to achieve a **minimum house edge of 5%** (from the current negative margin).
+- Introduce **dynamic odds adjustment** for high-volume markets (football, La Liga).
+
+**Expected Impact:**
+- Stabilize the platform's financial position within 3 months.
+- Reduce losses by an estimated **30-40%** in the first quarter.
+
+**Priority:** 🔴 **Critical**
+
+---
+
+#### 2. 🎯 Launch "StrikeZone Pro" Premium Tier (User Segmentation)
+
+**Action:**
+- Develop a segmentation model to classify users based on behavior (bet size, market selection, frequency, win rate).
+- Identify **Sharp Bettors** and create a **"StrikeZone Pro" premium tier** offering exclusive benefits (better odds, cashback, personalized insights).
+- For **recreational bettors**, develop educational content to improve retention.
+
+**Expected Impact:**
+- Monetize high-value users while limiting risk exposure.
+- Increase user lifetime value (LTV) by **20-30%** .
+
+**Priority:** 🟠 **High**
+
+---
+
+#### 3. ⚽ Expand Liga BetPlay Offerings (Profitability Growth)
+
+**Action:**
+- Double the number of betting markets available for Liga BetPlay matches (e.g., "First Goalscorer", "Half-Time/Full-Time", "Both Teams to Score").
+- Launch a **"Colombian Football Boost"** campaign with promotions tied exclusively to local competitions.
+
+**Expected Impact:**
+- Increase GGR from Liga BetPlay by **40-50%** within 6 months.
+- Establish a **competitive moat** in the Colombian market.
+
+**Priority:** 🟢 **High**
+
+---
+
+#### 4. 🧠 Conduct a Market Efficiency Study (Data-Driven Odds Calibration)
+
+**Action:**
+- Benchmark StrikeZone's odds against **5-10 international competitors** (Bet365, Betfair, 1xBet) for the top 10 markets.
+- Identify overpriced and underpriced markets and recalibrate accordingly.
+- Implement a **machine learning model** to predict optimal odds based on historical data, public sentiment, and betting volume.
+
+**Expected Impact:**
+- Improve odds accuracy and reduce losses in high-risk markets.
+- Increase overall house edge by **2-3%** across all markets.
+
+**Priority:** 🟡 **Medium**
+
+---
+
+#### 5. 📊 Develop a "Sharp Bettor Monitoring System" (Risk Management)
+
+**Action:**
+- Implement **real-time monitoring** of individual user behavior.
+- Flag users with **consistent winning patterns** and automatically adjust their access to high-risk markets.
+- Introduce **maximum payout limits** for high-risk markets to limit exposure.
+
+**Expected Impact:**
+- Reduce exposure to Sharp Bettors by **20-25%** .
+- Protect the platform's financial stability without alienating recreational users.
+
+**Priority:** 🟡 **Medium**
+
+---
+
+### 📋 Executive Summary (For CEO / Stakeholders)
+
+| Metric | Current State | Recommended Target | Action Owner |
+| :--- | :--- | :--- | :--- |
+| **Net Margin** | -109% | +5% | Head of Trading / Risk |
+| **Average Bet Ticket** | COP 2.51M | COP 500K (validate first) | Head of Data |
+| **La Liga Loss Ratio** | High (losses) | Reduce by 20% | Head of Trading |
+| **Liga BetPlay Margin** | Positive (profitable) | Increase by 40% | Head of Marketing |
+| **Football Loss Ratio** | 60%+ | <50% | Head of Trading |
+
+---
+
+### 🚀 Next Steps (Q1 Roadmap)
+
+| Quarter | Milestone | Owner |
+| :--- | :--- | :--- |
+| **Q1 Month 1** | Odds recalibration across all markets | Head of Trading |
+| **Q1 Month 2** | Launch "StrikeZone Pro" premium tier | Head of Product |
+| **Q1 Month 3** | Market Efficiency Study completed | Head of Data |
+| **Q1 Month 3** | Liga BetPlay expansion campaign launched | Head of Marketing |
+
+---
+
+### 📌 Conclusion
+
+StrikeZone has a **strong product foundation** and a **unique user base** with high-value potential. However, the current financial performance is **unsustainable**. By implementing the recommendations above, the platform can:
+
+1. **Stabilize its financial position** within 3 months.
+2. **Monetize its high-value user base** through segmentation.
+3. **Expand its most profitable market** (Liga BetPlay).
+4. **Build a data-driven competitive advantage** through advanced odds calibration and risk management.
+
+**The path to profitability is clear — now it's time to execute.**
 
 
 ### ⚠️ Limitations

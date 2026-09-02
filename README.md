@@ -635,11 +635,37 @@ StrikeZone has a **strong product foundation** and a **unique user base** with h
 **The path to profitability is clear — now it's time to execute.**
 
 
-### ⚠️ Limitations
+## ⚠️ Scope & Limitations
 
-All data is synthetically generated with random distributions, findings are illustrative, not representative of real market behavior
-Bet volume per user is low due to dataset size constraints
-Age distribution reflects random seeding, not a real acquisition campaign
+This project is designed as a **proof-of-concept and portfolio showcase** for a sports betting data platform operating in the Colombian market. As such, the following limitations apply:
+
+### Data Context
+
+- **Synthetic Data:** All data is generated using the Faker library with Colombian locale (`es_CO`). While the distributions (KYC status, gender, bet sizes) are based on real-world benchmarks and market research, the data does not represent actual user behavior from a live platform.
+
+- **Sample Size:** The dataset includes 300 users, 60 events, and 600 transactions — sufficient for demonstrating the full pipeline and generating meaningful insights, but not large enough for statistically significant conclusions or predictive modeling.
+
+- **Temporal Scope:** Data covers a 12-month simulated period. Seasonal patterns (e.g., peak betting during major tournaments) are partially represented but not exhaustively modeled.
+
+### Technical Scope
+
+- **No Real-Time Data:** The pipeline is designed for batch processing. Real-time streaming (e.g., Apache Kafka) was out of scope for this project but is included as a future enhancement.
+
+- **Single Database Instance:** The architecture uses a single MySQL instance. Clustering, replication, and high-availability are not implemented.
+
+- **No Machine Learning:** Predictive models (e.g., churn prediction, odds optimization) are proposed as next steps but not implemented in this version.
+
+### Design Decisions
+
+- **Simplified User Segmentation:** User segmentation is based on bet volume and frequency. More sophisticated clustering (e.g., RFM analysis) was considered but not required for the current scope.
+
+- **Odds Calibration:** Odds are simulated with random distributions. Real-world odds calibration would require historical betting data and sophisticated models (e.g., Bayesian inference, Elo ratings).
+
+### Why These Limitations?
+
+This project prioritizes **breadth over depth** — demonstrating the full lifecycle of a data project (modeling → ETL → analysis → visualization) rather than deep expertise in a single area. The limitations listed above represent conscious trade-offs made to keep the project focused, manageable, and educational.
+
+**Next Step:** Many of these limitations are addressed in the [Next Steps](#-next-steps) section, where I outline planned enhancements for a production-ready version of the platform.
 
 
 # 👩‍💻 Authors
